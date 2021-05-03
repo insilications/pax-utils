@@ -4,10 +4,10 @@
 #
 %define keepstatic 1
 Name     : pax-utils
-Version  : 1.2
-Release  : 3
-URL      : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.2.tar.gz
-Source0  : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.2.tar.gz
+Version  : 1.3
+Release  : 4
+URL      : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.3.tar.gz
+Source0  : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.3.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -66,7 +66,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1615543701
+export SOURCE_DATE_EPOCH=1620027984
 export GCC_IGNORE_WERROR=1
 ## altflags1 content
 export CFLAGS="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC"
@@ -102,7 +102,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1615543701
+export SOURCE_DATE_EPOCH=1620027984
 rm -rf %{buildroot}
 %make_install
 
