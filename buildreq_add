@@ -1,5 +1,37 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+binutils-dev
+buildreq-cmake
 docbook-xml
+doxygen
+elfutils
+elfutils-dev
+elfutils-staticdev
+gcc
+gcc-dev
+gcc-libs-math
+gcc-libstdc++32
+gcc-libubsan
+gcc-locale
+glibc-dev
+glibc-staticdev
+libedit
+libedit-dev
+libffi-dev
+libffi-staticdev
+libgcc1
+libstdc++
+libxml2-dev
+libxml2-staticdev
 libxslt-bin
+ncurses-dev
 xmlto
+xz-dev
+xz-staticdev
+yaml-cpp
+yaml-cpp-dev
+Z3-dev
+Z3-staticdev
+zlib-dev
+zlib-staticdev
+pyelftools

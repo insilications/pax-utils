@@ -4,20 +4,53 @@
 #
 %define keepstatic 1
 Name     : pax-utils
-Version  : 1.3
-Release  : 4
-URL      : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.3.tar.gz
-Source0  : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.3.tar.gz
+Version  : 1.3.1
+Release  : 5
+URL      : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.3.1.tar.gz
+Source0  : file:///aot/build/clearlinux/packages/pax-utils/pax-utils-v1.3.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: pax-utils-bin = %{version}-%{release}
 Requires: pax-utils-man = %{version}-%{release}
+Requires: pyelftools
+BuildRequires : Z3-dev
+BuildRequires : Z3-staticdev
+BuildRequires : binutils-dev
+BuildRequires : buildreq-cmake
 BuildRequires : docbook-xml
+BuildRequires : doxygen
+BuildRequires : elfutils
+BuildRequires : elfutils-dev
+BuildRequires : elfutils-staticdev
+BuildRequires : gcc
+BuildRequires : gcc-dev
+BuildRequires : gcc-libs-math
+BuildRequires : gcc-libstdc++32
+BuildRequires : gcc-libubsan
+BuildRequires : gcc-locale
+BuildRequires : glibc-dev
+BuildRequires : glibc-staticdev
+BuildRequires : libedit
+BuildRequires : libedit-dev
+BuildRequires : libffi-dev
+BuildRequires : libffi-staticdev
+BuildRequires : libgcc1
+BuildRequires : libstdc++
+BuildRequires : libxml2-dev
+BuildRequires : libxml2-staticdev
 BuildRequires : libxslt-bin
+BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(libcap)
 BuildRequires : pkgconfig(libseccomp)
+BuildRequires : pyelftools
 BuildRequires : xmlto
+BuildRequires : xz-dev
+BuildRequires : xz-staticdev
+BuildRequires : yaml-cpp
+BuildRequires : yaml-cpp-dev
+BuildRequires : zlib-dev
+BuildRequires : zlib-staticdev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -66,7 +99,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1620027984
+export SOURCE_DATE_EPOCH=1621976028
 export GCC_IGNORE_WERROR=1
 ## altflags1 content
 export CFLAGS="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC"
@@ -98,11 +131,11 @@ export MAKEFLAGS=%{?_smp_mflags}
 ## make_prepend content
 make autotools-update
 ## make_prepend end
-make  %{?_smp_mflags}
+make  %{?_smp_mflags}    V=1 VERBOSE=1
 
 
 %install
-export SOURCE_DATE_EPOCH=1620027984
+export SOURCE_DATE_EPOCH=1621976028
 rm -rf %{buildroot}
 %make_install
 
